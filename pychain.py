@@ -66,7 +66,7 @@ class Record:
 # 1. In the `Block` class, rename the `data` attribute to `record`.
 # 2. Set the data type of the `record` attribute to `Record`.
 
-
+# Creating the Block data class
 @dataclass
 class Block:
 
@@ -74,14 +74,18 @@ class Block:
     # Rename the `data` attribute to `record`, and set the data type to `Record`
     record: Record
 
+    # Include creator id, previous hash, current timestamp and nonce
     creator_id: int
     prev_hash: str = "0"
     timestamp: str = datetime.datetime.utcnow().strftime("%H:%M:%S")
     nonce: int = 0
 
+    # define function to define hashing of block
     def hash_block(self):
+        # Create an instance of the sha256 hashing function
         sha = hashlib.sha256()
 
+        # Encode the data using the encode function
         record = str(self.record).encode()
         sha.update(record)
 
@@ -97,20 +101,26 @@ class Block:
         nonce = str(self.nonce).encode()
         sha.update(nonce)
 
+        # return the hash code
         return sha.hexdigest()
 
-
+# Create a data class called Pychain
 @dataclass
 class PyChain:
     chain: List[Block]
+    
+    # Setup difficulty level for hashing
     difficulty: int = 4
 
+    # define proof of work function 
     def proof_of_work(self, block):
 
         calculated_hash = block.hash_block()
 
+        # multiply the difficulty level set times the amount of 0s the hash has to begin with
         num_of_zeros = "0" * self.difficulty
 
+        # do the proof of wokr calculations till you find the solution
         while not calculated_hash.startswith(num_of_zeros):
 
             block.nonce += 1
@@ -118,12 +128,15 @@ class PyChain:
             calculated_hash = block.hash_block()
 
         print("Wining Hash", calculated_hash)
+        # once solution found return block
         return block
 
+    # Once solution found, add block to blockchain
     def add_block(self, candidate_block):
         block = self.proof_of_work(candidate_block)
         self.chain += [block]
 
+    # chekc if blockchain is still valid
     def is_valid(self):
         block_hash = self.chain[0].hash_block()
 
@@ -141,14 +154,12 @@ class PyChain:
 # Streamlit Code
 
 # Adds the cache decorator for Streamlit
-
-
 @st.cache_resource()
 def setup():
     print("Initializing Chain")
     return PyChain([Block("Genesis", 0)])
 
-
+# print below strings
 st.markdown("# PyChain")
 st.markdown("## Store a Transaction Record in the PyChain")
 
@@ -184,6 +195,7 @@ receiver_data = st.text_input('receiver')
 # Add an input area where you can get a value for `amount` from the user.
 amout_data = st.number_input('amount')
 
+# if button is pressed continue with below code
 if st.button("Add Block"):
     prev_block = pychain.chain[-1]
     prev_block_hash = prev_block.hash_block()
@@ -204,21 +216,27 @@ if st.button("Add Block"):
 ################################################################################
 # Streamlit Code (continues)
 
+# print below string
 st.markdown("## The PyChain Ledger")
 
+# define pychain df as dataframe and print it
 pychain_df = pd.DataFrame(pychain.chain).astype(str)
 st.write(pychain_df)
 
+# give option to increase difficulty of hashing by changing the slider
 difficulty = st.sidebar.slider("Block Difficulty", 1, 5, 2)
 pychain.difficulty = difficulty
 
+# give option to select one of the blocks of the blockchain to see the input values
 st.sidebar.write("# Block Inspector")
 selected_block = st.sidebar.selectbox(
     "Which block would you like to see?", pychain.chain
 )
 
+# show the values of the selected block
 st.sidebar.write(selected_block)
 
+# give option to validate chain by pressing button
 if st.button("Validate Chain"):
     st.write(pychain.is_valid())
 
