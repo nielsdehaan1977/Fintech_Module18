@@ -81,13 +81,16 @@ Once you press Add Block the data will be added once the hash puzzle is solved.
 * Update PyChain Ledger
 Once the hash puzzle is solved the block will be added to the existing PyChain ledger. 
 The record shows: 
-- Record, in this case sender, receiver and amount information
-- Creator_id
-- Hash of previous block linking the new block to the previous block
-- timestamp of block being added to the ledged
-- nonce of the block
+1. Record, in this case sender, receiver and amount information
+2. Creator_id
+3. Hash of previous block linking the new block to the previous block
+4. Timestamp of block being added to the ledged
+5. Nonce of the block
 
 * Increase Block hashing difficulty option
+This streamlit app provides you with the option to increase the difficulty of solving the hash puzzle, by providing a slider on the sidebar, where you can increase the starting 0's of the hash from 1 (easiest) to 5 (hardest) (with standard value 4). 
+
+
 
 
 
