@@ -143,7 +143,7 @@ class PyChain:
 # Adds the cache decorator for Streamlit
 
 
-@st.cache(allow_output_mutation=True)
+@st.cache_resource()
 def setup():
     print("Initializing Chain")
     return PyChain([Block("Genesis", 0)])
@@ -193,7 +193,7 @@ if st.button("Add Block"):
     # which is set equal to a `Record` that contains the `sender`, `receiver`,
     # and `amount` values
     new_block = Block(
-        data=input_data,
+        record = Record(sender_data,receiver_data,amout_data),
         creator_id=42,
         prev_hash=prev_block_hash
     )
