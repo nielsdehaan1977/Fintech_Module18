@@ -75,16 +75,28 @@ in the Store a Transaction Record in the PyChain section of the streamlit app yo
 - amount: the amount that is exchanged
 Once you press Add Block the data will be added once the hash puzzle is solved. 
 
-(Below screenshot shows a blockchain consisting of several blocks)
+(Below screenshot shows the blockchain consisting of several blocks)
 ![adding_blocks](https://github.com/nielsdehaan1977/Fintech_Module18/blob/main/Images/streamlit4.4.1.jpg)
 
 * Update PyChain Ledger
-
+Once the hash puzzle is solved the block will be added to the existing PyChain ledger. 
+The record shows: 
+- Record, in this case sender, receiver and amount information
+- Creator_id
+- Hash of previous block linking the new block to the previous block
+- timestamp of block being added to the ledged
+- nonce of the block
 
 * Increase Block hashing difficulty option
+
+
+
 * Block inspection option
+
 * Validate Chain option
 
+(Below screenshot shows the blockchain validation)
+![adding_blocks](https://github.com/nielsdehaan1977/Fintech_Module18/blob/main/Images/streamlit4.4.2.jpg)
 
 
 ## Contributor(s)
