@@ -1,6 +1,6 @@
 # Fintech_Module18
 
-![blockchain_tech]((https://github.com/nielsdehaan1977/Fintech_Module18/blob/main/Images/blockchain_tech.jpg)
+![blockchain](https://github.com/nielsdehaan1977/Fintech_Module18/blob/main/Images/blockchain_tech.jpg)
 ---
 # Blockchain based ledger system in streamlit
 ---
