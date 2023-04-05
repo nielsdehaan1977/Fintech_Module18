@@ -14,8 +14,14 @@
 ---
 The tool can help 
 
-* The tool goes through the following tabs/steps (Steps are described in more detail in Usage passage of Readme): 
-### TO BE ADDED
+* The tool goes through the following steps:
+
+* Add Block to Blockchain
+* Update PyChain Ledger
+* Increase Block hashing difficulty option
+* Block inspection option
+* Validate Chain option
+
 ---
 ## Table of Content
 
@@ -62,7 +68,24 @@ Streamlit can be started by:
 
 ## Usage
 
-### TO BE ADDED
+* Add Block to Blockchain
+in the Store a Transaction Record in the PyChain section of the streamlit app you can input the following data: to replicate a blockchain transaction. 
+- sender: Person who sends something
+- receiver: Person who will receive something
+- amount: the amount that is exchanged
+Once you press Add Block the data will be added once the hash puzzle is solved. 
+
+(Below screenshot shows a blockchain consisting of several blocks)
+![adding_blocks](https://github.com/nielsdehaan1977/Fintech_Module18/blob/main/Images/streamlit4.4.1.jpg)
+
+* Update PyChain Ledger
+
+
+* Increase Block hashing difficulty option
+* Block inspection option
+* Validate Chain option
+
+
 
 ## Contributor(s)
 
