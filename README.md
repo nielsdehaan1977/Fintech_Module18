@@ -9,11 +9,6 @@
 ---
 ## pychain.py
 ---
-### This application 
-
----
-The tool can help 
-
 * The tool goes through the following steps:
 
 * Add Block to Blockchain
