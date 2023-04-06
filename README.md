@@ -88,10 +88,23 @@ The record shows:
 5. Nonce of the block
 
 * Increase Block hashing difficulty option
-This streamlit app provides you with the option to increase the difficulty of solving the hash puzzle, by providing a slider on the sidebar, where you can increase the starting 0's of the hash from 1 (easiest) to 5 (hardest) (with standard value 4). 
+This streamlit app provides you with the option to increase the difficulty of solving the hash puzzle, by providing a slider on the sidebar, where you can increase the starting 0's of the hash from 1 (easiest) to 5 (hardest) (with standard value 2). 
 
+Please see logic below for difficulty level adjustment:
 
+```
+# Setup difficulty level for hashing
+difficulty: int = 4
 
+# multiply the difficulty level set times the amount of 0s the hash has to begin with
+num_of_zeros = "0" * self.difficulty
+
+# give option to increase difficulty of hashing by changing the slider
+difficulty = st.sidebar.slider("Block Difficulty", 1, 5, 2)
+pychain.difficulty = difficulty
+
+```
+![dif_slider](https://github.com/nielsdehaan1977/Fintech_Module18/blob/main/Images/streamlit_difficulty_slider.jpg)
 
 
 * Block inspection option
