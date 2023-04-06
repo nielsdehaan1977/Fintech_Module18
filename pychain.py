@@ -182,7 +182,7 @@ def setup():
 st.markdown("# PyChain")
 st.markdown("## Store a Transaction Record in the PyChain")
 
-# startup pychains blockchain starting with genesis block
+# Serve the web app
 pychain = setup()
 
 ################################################################################
