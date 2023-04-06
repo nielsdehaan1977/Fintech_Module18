@@ -9,7 +9,7 @@
 ---
 ## pychain.py
 ---
-### This application was built to provide both ### TO BE ADDED
+### This application 
 
 ---
 The tool can help 
@@ -42,6 +42,12 @@ This project leverages python 3.9 with the following packages:
 
 * [streamlit](https://streamlit.io/) - Streamlit is an open-source Python library that makes it easy to create and share, custom web apps for machine learning and data science.
 
+* [dataclasses](https://docs.python.org/3/library/dataclasses.html) - his module provides a decorator and functions for automatically adding generated special methods such as __init__() and __repr__() to user-defined classes.
+
+* [typing](https://docs.python.org/3/library/typing.html) - This module provides runtime support for type hints.
+
+* [hashlib](https://docs.python.org/3/library/hashlib.html) - This module implements a common interface to many different secure hash and message digest algorithms.
+
 ---
 
 ## Installation Guide
@@ -67,6 +73,10 @@ Streamlit can be started by:
 
 
 ## Usage
+
+To use the PyChain app, simply clone the full repository and open the **PyChain.py** file in via streamlit from your gitbash or terminal by using Step3 in above installation guide. 
+
+The tool will go through the following steps:
 
 * Add Block to Blockchain
 in the Store a Transaction Record in the PyChain section of the streamlit app you can input the following data: to replicate a blockchain transaction. 
@@ -109,19 +119,23 @@ pychain.difficulty = difficulty
 
 * Block inspection option
 
+In this part you can verify the block contents and hashes in the Streamlit drop-down menu in the side bar. Please see below screenshots for more information
+
 ![block_insp1](https://github.com/nielsdehaan1977/Fintech_Module18/blob/main/Images/block_inspector.jpg)
 ![block_insp2](https://github.com/nielsdehaan1977/Fintech_Module18/blob/main/Images/block_inspector2.jpg)
 
 
 * Validate Chain option
 
-(Below screenshot shows the blockchain validation)
-![adding_blocks](https://github.com/nielsdehaan1977/Fintech_Module18/blob/main/Images/streamlit4.4.2.jpg)
+In this part you can test the blockchain validation process by using the web interface.When you push the Validate Chain button it will either output TRUE (in case blockchain is valid) or FALSE (in case blockchain is not valid) 
+
+(Below screenshot shows the validity of blockchain is True)
+![adding_blocks](https://github.com/nielsdehaan1977/Fintech_Module18/blob/main/Images/streamlit5.jpg)
 
 
 ## Contributor(s)
 
-This project was created by Niels de Haan (nlsdhn@gmail.com), Jason Steiner (jason.steiner@richmond.edu), Marc Pocorni (
+This project was created by Niels de Haan (nlsdhn@gmail.com)
 
 ---
 
