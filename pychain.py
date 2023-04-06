@@ -87,26 +87,36 @@ class Block:
 
         # Encode the data using the encode function
         record = str(self.record).encode()
+        # hash it
         sha.update(record)
 
+        # encode creator id
         creator_id = str(self.creator_id).encode()
+        # hash it
         sha.update(creator_id)
 
+        # encode timestamp
         timestamp = str(self.timestamp).encode()
+        # hash it
         sha.update(timestamp)
 
+        # encode previous hash
         prev_hash = str(self.prev_hash).encode()
+        # hash it
         sha.update(prev_hash)
-
+        
+        # encode nonce
         nonce = str(self.nonce).encode()
+        # hash it
         sha.update(nonce)
 
-        # return the hash code
+        # Return the hash to the rest of the Block class
         return sha.hexdigest()
 
 # Create a data class called Pychain
 @dataclass
 class PyChain:
+    # The class PyChain holds a list of blocks
     chain: List[Block]
     
     # Setup difficulty level for hashing
@@ -114,7 +124,8 @@ class PyChain:
 
     # define proof of work function 
     def proof_of_work(self, block):
-
+        
+        # set calculated hash variable as block.hash_block
         calculated_hash = block.hash_block()
 
         # multiply the difficulty level set times the amount of 0s the hash has to begin with
@@ -122,11 +133,13 @@ class PyChain:
 
         # do the proof of wokr calculations till you find the solution
         while not calculated_hash.startswith(num_of_zeros):
-
+            
+            # update nonce value
             block.nonce += 1
-
+            # return the block with the updated nonce value
             calculated_hash = block.hash_block()
 
+        # print winning hash with the calculated hash value
         print("Wining Hash", calculated_hash)
         # once solution found return block
         return block
@@ -140,13 +153,16 @@ class PyChain:
     def is_valid(self):
         block_hash = self.chain[0].hash_block()
 
+        # run for loop to check if the hash of the previous block matches the prev_block value in the current block. 
         for block in self.chain[1:]:
+            # if they don't match, the loop will immediately return False to alert us that the blockchain is invalid. 
             if block_hash != block.prev_hash:
                 print("Blockchain is invalid!")
                 return False
-
+            # calculate the hash of the current block and store it in block_hash.
             block_hash = block.hash_block()
 
+        # print that blockchain is valid if prvious block hash matches the prev_block value in the current block
         print("Blockchain is Valid")
         return True
 
@@ -155,14 +171,18 @@ class PyChain:
 
 # Adds the cache decorator for Streamlit
 @st.cache_resource()
+# define setup function
 def setup():
+    # print initialziing chain
     print("Initializing Chain")
+    # start with the geneisis (first) block (zero value)
     return PyChain([Block("Genesis", 0)])
 
 # print below strings
 st.markdown("# PyChain")
 st.markdown("## Store a Transaction Record in the PyChain")
 
+# startup pychains blockchain starting with genesis block
 pychain = setup()
 
 ################################################################################
@@ -210,6 +230,7 @@ if st.button("Add Block"):
         prev_hash=prev_block_hash
     )
 
+    # add blcok to the blcokchain
     pychain.add_block(new_block)
     st.balloons()
 
