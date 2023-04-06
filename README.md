@@ -110,7 +110,7 @@ pychain.difficulty = difficulty
 * Block inspection option
 
 ![block_insp1](https://github.com/nielsdehaan1977/Fintech_Module18/blob/main/Images/block_inspector.jpg)
-![block_insp2](https://github.com/nielsdehaan1977/Fintech_Module18/blob/main/Images/block_inspector2.jpg
+![block_insp2](https://github.com/nielsdehaan1977/Fintech_Module18/blob/main/Images/block_inspector2.jpg)
 
 
 * Validate Chain option
